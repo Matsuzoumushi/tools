@@ -1,6 +1,7 @@
-#This program saves the path of the open explorer.
-#The Created batch file reopens saved explorer path.
-#Batch file will be created in $OutputFolder.
+#This program saves paths of open explorers.
+#and batch file will be created in $OutputFolder.
+#The Created batch file reopens saved explorer paths.
+
 
 $OutputFolder = (split-path -parent $MyInvocation.MyCommand.Definition) + "\"
 #$OutputFolder = $PSScriptRoot + "\" Not executable before Powershell Version 2
@@ -13,7 +14,7 @@ if ($Explorer.Count -eq 0){
   Write-Output "nothing"
   Remove-Item $Output
 }else{
-  Write-Output "------------------saved path------------------"
+  Write-Output "------------------saved paths------------------"
   foreach($Fullpath in $Explorer){
     Add-Content -value ("explorer """+$Fullpath.locationURL + """") -path $Output
     Write-Output $Fullpath.locationURL

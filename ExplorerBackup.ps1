@@ -1,4 +1,4 @@
-#This code saves the path of the open explorer.
+#This program saves the path of the open explorer.
 #The Created batch file reopens saved explorer path.
 #Batch file will be created in $OutputFolder.
 

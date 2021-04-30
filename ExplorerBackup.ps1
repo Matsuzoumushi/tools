@@ -1,6 +1,6 @@
 #This program saves paths of open explorers.
-#and batch file will be created in $OutputFolder.
-#The Created batch file reopens saved explorer paths.
+#and .ps1 file will be created in $OutputFolder.
+#The Created .ps1 file reopens saved explorer paths.
 
 
 $OutputFolder = (split-path -parent $MyInvocation.MyCommand.Definition) + "\"
@@ -8,7 +8,7 @@ $OutputFolder = (split-path -parent $MyInvocation.MyCommand.Definition) + "\"
 
 $shell=New-Object -ComObject shell.application
 $Explorer = $shell.windows()|Where-Object{$_.fullname -like "*Explorer.EXE"}
-$Output = New-Item -path ($OutputFolder+"BackupExplorer_"+(get-date -Format "yyyyMMddHHmmss")+".bat")
+$Output = New-Item -path ($OutputFolder+"BackupExplorer_"+(get-date -Format "yyyyMMddHHmmss")+".ps1")
 
 if ($Explorer.Count -eq 0){
   Write-Output "nothing"
